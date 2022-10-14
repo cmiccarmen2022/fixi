@@ -3,7 +3,7 @@
   height: 70px;
   background: #262626;
   position: fixed;
-  z-index: 100;
+  z-index: 2;
   width: 100%;
 }
 
@@ -171,10 +171,8 @@ article {
   padding: 10px;
 }
 
-/*# sourceMappingURL=nav.css.map */
 
-
-/* Estilos para apartado dle banneer con efecto ken burn */
+/* Estilos para apartado del banneer con efecto ken burn */
 .banner{
   width: 100%;
   height: 100vh;
@@ -203,23 +201,79 @@ article {
   background-position: center center;
   }
 
-  .banner section h1{
-    color: #fff;
-    font-weight: 600;
-    font-family: sans-serif;
-    font-size: 17px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
 
+  /* Empezamos a realizar first mobile a los elementos primarios del banner */
+@media screen and (max-width: 450px){
+    .titulo-banner{
+      display: flex;
+      width: 230px;
+      justify-content: center;
+    }
 
-.tracking-in-expand-one{
-  margin-top: 5px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 18px;
-  letter-spacing: 2px;
+    .titulo-banner h1{
+      font-size: 15px;
+      text-align: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .text-banner{
+      display: flex;
+      width: 200px;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    .text-banner span{
+      font-size: 12px;
+      font-family: sans-serif;
+      color: #ffffff;
+      font-style: normal;
+    }
+
+    /* Estilos para el button con ubicación en banner */
+.banner button {
+  margin-top: 10px;
+  padding: 5px 25px;
+  border: unset;
+  border-radius: 5px;
+  z-index: 1;
+  color: #000000;
+  background: #ffffff;
+  position: relative;
+  -webkit-box-shadow: 4px 8px 19px -6px rgba(255, 255, 255, 0.788);
+  box-shadow: 4px 8px 19px -6px  rgba(255, 255, 255, 0.788);
+  transition: all 250ms;
+  overflow: hidden;
 }
 
+.banner button span{
+  font-family: sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.banner button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  height: 100%;
+  width: 0;
+  border-radius: 5px;
+  background-color: #2b2c2c;
+  transition: all 250ms
+}
+
+.banner button:hover {
+  color: #e8e8e8;
+}
+
+.banner button:hover::before {
+  width: 100%;
+  }
+}
 
 /* Se aplica el keyframes para el efecto de salida del tracking  */
 .tracking-in-expand {
@@ -289,298 +343,26 @@ article {
   }
 }
 
-/* Estilos para botones */
-button {
-  margin-top: 10px;
-  padding: 8px 35px;
-  border: unset;
-  border-radius: 5px;
-  z-index: 1;
-  color: #000000;
-  background: #ffffff;
-  position: relative;
-  -webkit-box-shadow: 4px 8px 19px -6px rgba(255, 255, 255, 0.788);
-  box-shadow: 4px 8px 19px -6px  rgba(255, 255, 255, 0.788);
-  transition: all 250ms;
-  overflow: hidden;
+
+/* Estilos para reloj 
+.container-clock{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
 }
 
-button span{
+#time{
   font-family: sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  font-style: normal;
-}
-
-button::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  height: 100%;
-  width: 0;
-  border-radius: 5px;
-  background-color: #2b2c2c;
-  transition: all 250ms
-}
-
-button:hover {
-  color: #e8e8e8;
-}
-
-button:hover::before {
-  width: 100%;
-}
-
-
-
-
-
-/* Estilamos la sección de elementos fontawesome */
-.cs{
-  display: flex;
-  height: 500px;
-  justify-content: center;
-  align-items: center;
-  border: transparent;
-  background-color: #2b2c2c;
-  margin-top: 20px;
-}
-
-@media screen and (max-width: 1100px){
-  .cs{
-      display: flex;
-      width: 100%;
-      height: 1050px;
-  }
-
-  .cs .circles-enginet{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-  }
-
-  .circle-two{
-      margin-top: 20px;
-  }
-
-  .circle-three{
-      margin-top: 20px;
-  
-  }
-
-  .circle-four{
-      margin-top: 20px;
-  }
-
-  section.se{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      height: 500px;
-  }
-
-  section.se .title-se h2{
-      display: flex;
-      justify-content: center;
-      text-align: center;
-      font-size: 35px;
-  }
-  
-}
-
-.circles-enginet{
-  display: grid;
-  width: 100%;
-  justify-content: center;
-  justify-items: center;
-  grid-template-columns: 15% 15% 15% 15%;
-  grid-gap: 30px;
-}
-
-.circles-enginet .fas{
   color: #ffffff;
 }
 
-/* Estilos para circle one */
-.circles-enginet .circle-one{
-  width: 250px;
-  height: 200px;
-}
-
-.circles-enginet .circle-one a{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-  text-decoration: none;
-  width: 100px;
-  height: 100px;
-  border: 2px solid #ffffff;
-  border-radius: 50%;
-  background-color: transparent;
-}
-
-.title-services{
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  margin-top: 10px;
-}
-
-.title-services h3{
+#date{
+  font-family: sans-serif;
   color: #ffffff;
-  font-weight: bold;
+  font-weight: 500;
 }
-
-.text-services{
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  margin-top: 10px;
-}
-
-.text-services p{
-  width: 150px;
-  text-align: center;
-  color: #ffffff;
-}
-
-
-/* Estilos pata circle two */
-.circles-enginet .circle-two{
-  width: 250px;
-  height: 200px;
-}
-
-.circles-enginet .circle-two a{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-  text-decoration: none;
-  width: 100px;
-  height: 100px;
-  border: 2px solid #ffffff;
-  border-radius: 50%;
-  background-color: transparent;
-}
-
-.title-datos{
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  margin-top: 10px;
-}
-
-.title-datos h3{
-  color: #ffffff;
-  font-weight: bold;
-}
-
-.text-datos{
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  margin-top: 10px;
-}
-
-.text-datos p{
-  width: 150px;
-  text-align: center;
-  color: #ffffff;
-}
-
-
-/* Estilos para circle three */
-.circles-enginet .circle-three{
-  width: 250px;
-  height: 200px;
-}
-
-.circles-enginet .circle-three a{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-  text-decoration: none;
-  width: 100px;
-  height: 100px;
-  border: 2px solid #ffffff;
-  border-radius: 50%;
-  background-color: transparent;
-}
-
-.title-design{
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  margin-top: 10px;
-}
-
-.title-design h3{
-  color: #ffffff;
-  font-weight: bold;
-}
-
-.text-design{
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  margin-top: 10px;
-}
-
-.text-design p{
-  width: 150px;
-  text-align: center;
-  color: #ffffff;
-}
-
-/* Estilos para circle four */
-.circles-enginet .circle-four{
-  width: 250px;
-  height: 200px;
-}
-
-.circles-enginet .circle-four a{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-  text-decoration: none;
-  width: 100px;
-  height: 100px;
-  border: 2px solid #ffffff;
-  border-radius: 50%;
-  background-color: transparent;
-}
-
-.title-solutions{
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  margin-top: 10px;
-}
-
-.title-solutions h3{
-  text-align: center;
-  color: #ffffff;
-  font-weight: bold;
-}
-
-.text-solutions{
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  margin-top: 10px;
-}
-
-.text-solutions p{
-  width: 150px;
-  text-align: center;
-  color: #ffffff;
-}
-
+*/
